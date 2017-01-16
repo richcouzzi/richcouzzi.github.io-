@@ -5,11 +5,9 @@ app.directive("scroll", function ($window) {
 
         angular.element($window).bind("scroll", function() {
             if (this.pageYOffset >= 5) {
-                 scope.boolChangeClass = true;
-                 console.log('Scrolled below header.');
+                 scope.activateClass = true;
              } else {
-                 scope.boolChangeClass = false;
-                 console.log('Header is in view.');
+                 scope.activateClass = false;
              }
             scope.$apply();
         });
