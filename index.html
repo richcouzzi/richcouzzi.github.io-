@@ -157,7 +157,7 @@
                           'Jekyll',
                           'Responsive Design'
                         ],
-          link:        'https://richardcouzzi.com',
+          link:        false,
           live:         true,
           description: `Personal Web home built in React and running on Github pages.`
         }
@@ -238,8 +238,10 @@
                   </p>
 
                   <div className="project__actions">
-                    <a className="project__link" target="_blank" href={this.props.item.link}>
-                    Go to project </a>
+
+                    {this.props.item.link ?  <a className="project__link" target="_blank" href={this.props.item.link}>
+                      Go to project </a> : null }
+
                   </div>
                 </div>
                 </div>
