@@ -1,54 +1,366 @@
 <!DOCTYPE html>
-<html ng-app="couzzi">
+<html>
 
   <head>
-      <meta charset="utf-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <title>R. Couzzi</title>
-      <meta name="description" content="">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cardo|Montserrat">
-      <link rel="stylesheet" href="app.css">
-      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.15/angular.min.js"></script>
-      <script type="text/javascript" src="app.js"></script>
+
+    <title>R. Couzzi</title>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cardo|Raleway:300,400,500,700">
+    <link rel="stylesheet" href="app.css">
+
+    <script src="https://fb.me/react-15.0.0-rc.2.js"></script>
+    <script src="https://fb.me/react-dom-15.0.0-rc.2.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+    <script src="https://npmcdn.com/react-router@2.4.0/umd/ReactRouter.min.js"></script>
+
   </head>
 
-  <body ng-controller="mainCtrl">
-      <div scroll ng-class="{invert:activateClass}" class="name">
-          <div class="name__inner">R. Couzzi. </div>
-      </div>
-      <div class="sections">
-          <div class="sections__inner">
-              <div id="about" class="sections__page sections__page--about">
-                  <div class="sections__headline">About</div>
-                  <div class="sections__body">
-                      My name is Rich, and I am a multi-disciplinary web-focused
-                      software engineer and designer. In the past 4 years, I’ve
-                      helped grow a small startup into a nationally recognized brand,
-                      used cutting-edge technologies to build r&amp;d prototypes
-                      from the future, delivered products to market with limited
-                      turnaround times, and hand-built acoustic guitars from scratch.
-                      <br /><br />
-                      A colleague described me as “Smart, funny, logical, reasonable,
-                      and always ready to Zumba”. I’ve never done Zumba, but the rest
-                      checks out. My goal is work with and help build a creative
-                      software team that values design and simplicity and wants to
-                      build amazing things.
-                      <br /><br/ >
-                      Please have a look at my
-                      <a download="Rich_Couzzi_Resume_2017.pdf" href="/Rich_Couzzi_Resume_2017.pdf" class="sections__anchor">resume </a>,
-                      and my
-                      <a target="_blank" href="https://www.linkedin.com/in/richardcouzzi" class="sections__anchor">LinkedIn</a>
-                      &mdash;if you're into that sort of thing.
-                      <br /><br />
-                      Rich Couzzi
+  <body>
+
+    <div id="root"></div>
+
+    <script type="text/babel">
+
+      var {
+        Router,
+        Route,
+        IndexRoute,
+        hashHistory,
+        IndexLink,
+        Link
+      } = ReactRouter
+
+      //////////////
+      // Landing
+      ////////////
+
+      var landingBlurbs  = [
+        `My name is Rich, and I am a multi-disciplinary web focused
+        software engineer and designer.`,
+
+        `In the past 4 years, I’ve
+        helped grow a small startup into a nationally recognized
+        brand, used cutting-edge technologies to build r&d
+        prototypes from the future, delivered products to market
+        with limited turnaround times, and hand-built acoustic
+        guitars from scratch.`,
+
+        `A colleague described me as “Smart, funny, logical,
+        reasonable, and always ready to Zumba”. I’ve never done
+        Zumba, but the rest checks out. My goal is work with and
+        help build a creative software team that values design
+        and simplicity and wants to build amazing things.`,
+
+        `❤️,`,
+
+        `Rich`
+      ];
+
+      var Landing = React.createClass({
+        render: function() {
+            return (
+              <div>
+                <div className="section">
+                  <h2 className="section__headline h1">
+                    ⌘ Hello,
+                  </h2>
+                  <div className="section__body">
+                      {
+                        landingBlurbs.map(function(blurb, index) {
+                            return <p className="section__blurb" key={index} >{blurb}</p>
+                        })
+                      }
+
                   </div>
+                </div>
               </div>
-          </div>
-      </div>
-      <div class="footer">
-          <div class="footer__copy">&copy; 2009-{{currentYear}} R Couzzi.</div>
-      </div>
+            );
+          }
+      });
+
+      /////////////
+      // Work
+      ////////////
+
+      var projects = [
+        {
+          image:       '/img/work/screencapture-breakaway-pelotoncycle-1484957054974.jpg',
+          name:        'Breakaway Training Program',
+          stack:       [
+                          'AngularJS',
+                          'Amazon Web Services (S3)',
+                          'SalesForce Marketing Cloud',
+                          'Tealium',
+                          'Google Drive API',
+                          'Responsive Design'
+                        ],
+          link:        'https://breakaway.pelotoncycle.com/#/jess/week/1',
+          live:         true,
+          description: `A coach-curated 4 week training program. Fully responsive
+                        across 4 breakpoints, built on Amazon Web Services (S3), Backend data driven by
+                        Google Drive API, allowing management and maintence of the
+                        data layer to be controlled by the familiar GDocs interface.`
+        },
+        {
+          image:       '/img/work/screencapture-press-pelotoncycle-1484961086380.jpg',
+          name:        'Press Kit',
+          stack:       [
+                          'AngularJS',
+                          'Amazon Web Services (S3)',
+                          'SalesForce Marketing Cloud',
+                          'Tealium',
+                          'Google Drive API',
+                          'Responsive Design'
+                        ],
+          link:        'https://press.pelotoncycle.com',
+          live:         true,
+          description: `A hub for managing vetted digital assets. Fully responsive
+                        across 4 breakpoints, built on Amazon Web Services (S3).`
+        },
+        {
+          image:       '/img/work/screencapture-wallpapers-pelotoncycle-1484967569661.jpg',
+          name:        'Fashion Week',
+          stack:       [
+                          'AngularJS',
+                          'Heroku',
+                          'Node/Express',
+                          'SalesForce Marketing Cloud',
+                          'Tealium',
+                          'Responsive Design'
+                        ],
+          link:        'https://wallpapers.pelotoncycle.com',
+          live:         true,
+          description: `Fashion week promotion for user engagement and retention.
+                        Screen resolution detection served up the correct asset, with
+                        the option to view the entire collection on desktop.`
+        },
+        {
+          image:       '/img/work/screencapture-localhost-4000-landing-html-1484979364083.jpg',
+          name:        'Portfolio',
+          stack:       [
+                          'React',
+                          'Github Pages',
+                          'Jekyll',
+                          'Responsive Design'
+                        ],
+          link:        'https://richardcouzzi.com',
+          live:         true,
+          description: `Personal Web home built in React and running on Github pages.`
+        }
+      ];
+
+      var Work = React.createClass({
+        render: function() {
+            return (
+              <div>
+              <div className="hero"></div>
+              <div className="section">
+                <h2 className="section__headline">
+                  ⌘ Work
+                </h2>
+                <div className="section__body">
+                      <WorkList projects={projects} />
+                </div>
+              </div>
+              </div>
+            );
+          }
+      });
+
+
+      var WorkList = React.createClass({
+        render: function() {
+          return (
+            <div className="worklist"> {
+                this.props.projects.map(function(item, index) {
+                return <Project key={index} item={item} />
+              })
+            } </div>
+          );
+        }
+      });
+
+      var Project = React.createClass({
+        getInitialState: function() {
+          return {
+            condition: false
+          }
+        },
+        handleClick: function() {
+          this.setState({
+            condition: !this.state.condition
+          });
+        },
+        render: function() {
+          return (
+            <div className="project">
+                <div className={this.state.condition ? "project__img-wrapper project__img-wrapper--expanded" : "project__img-wrapper"}>
+
+                <div className={this.state.condition ? "project__toggle project__toggle--active" : "project__toggle"} onClick={this.handleClick}>
+                      { this.state.condition ? "Collapse"  : "Expand"} UI Preview
+                </div>
+                      <img className="project__img" src={this.props.item.image}/>
+
+                </div>
+
+
+                <div className="project__copy-container">
+
+                  <div className="project__copy-container-inner">
+
+                  <h1 className="project__name">
+
+                  {this.props.item.live ? <span title="This project is online" className="project__live">LIVE</span> : null }
+                  {this.props.item.name}
+                  </h1>
+                  <p className="project__description">{this.props.item.description} </p>
+
+                  <p className="project__stack">
+                    {
+                      this.props.item.stack.sort().map(function(lang) {
+                          return <span className="project__lang" key={lang}>{lang}</span>
+                      })
+                    }
+                  </p>
+
+                  <div className="project__actions">
+                    <a className="project__link" target="_blank" href={this.props.item.link}>
+                    Go to project </a>
+                  </div>
+                </div>
+                </div>
+            </div>
+          )
+        }
+      });
+
+      /////////////
+      // Resume
+      ////////////
+
+
+      var PDFEmbed = React.createClass({
+
+        render : function() {
+
+          return (
+            <div>
+              <iframe className="resume__embed" src="https://docs.google.com/gview?url=https://richcouzzi.github.io/Rich_Couzzi_Resume_2017.pdf&embedded=true"></iframe>
+            </div>
+          )
+
+        }
+
+
+      });
+
+      var Resume = React.createClass({
+        render: function() {
+            return (
+              <div>
+
+              <div className="section">
+
+
+                <PDFEmbed />
+
+              </div>
+              </div>
+            );
+          }
+      });
+
+      /////////////
+      // 404
+      ////////////
+
+      var Error404 = React.createClass({
+        render: function() {
+            return (
+              <div className="section">
+                <h2 className="section__headline">
+                  404 :(
+                </h2>
+                <p className="section__body">
+                  Nope. No idea.
+                </p>
+              </div>
+            );
+          }
+      });
+
+      /////////////
+      // App
+      ////////////
+
+      var Nav = React.createClass({
+        render: function() {
+          return (
+            <div className="nav">
+              <IndexLink to="/" className="nav__link" activeClassName="nav__link--active">Hello</IndexLink>
+              <Link to="/work" className="nav__link" activeClassName="nav__link--active">Work</Link>
+                <Link to="/resume" className="nav__link" activeClassName="nav__link--active">Resume</Link>
+            </div>
+          )
+        }
+      });
+
+      var Footer = React.createClass({
+        render : function () {
+
+          let now = new Date();
+          let year = now.getFullYear();
+
+          return (
+            <div className="footer">
+              &copy; 2009&ndash;{year} R. Couzzi
+              <div className="footer__fine-print">
+
+              All product names, logos, and brands are property
+              of their respective owners. All company, product and
+              service names used in this website are for
+              identification purposes only. Use of these names,
+              logos, and brands does not imply endorsement.
+
+              </div>
+            </div>
+          )
+
+        }
+      });
+
+      var App = React.createClass({
+
+        render: function() {
+          return (
+            <div>
+              <Nav />
+              <div className="content">
+                {this.props.children}
+              </div>
+              <Footer />
+            </div>
+          )
+        }
+      });
+
+
+      ReactDOM.render((
+        <Router history={hashHistory}>
+          <Route path="/" component={App}>
+            <IndexRoute component={Landing} />
+             <Route path="work" component={Work} />
+             <Route path="resume" component={Resume} />
+            <Route path='*' component={Error404} />
+          </Route>
+        </Router>
+      ), document.querySelector("#root"));
+
+    </script>
   </body>
 
 </html>
