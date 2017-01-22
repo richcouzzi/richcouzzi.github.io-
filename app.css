@@ -51,7 +51,7 @@ body {
     background-color: #fff;
     font-family: "Raleway", Helvetica, Arial, sans-serif;
     margin: 0;
-    overflow-x: hidden;
+
 }
 
 #root {
@@ -109,6 +109,55 @@ body {
     position: absolute;
     top: 50px;
     left: 0;
+}
+
+.content {
+    padding: 20px;
+    margin-top: 50px;
+}
+
+.hero {
+    background: url(/img/geo.jpg) no-repeat 50% 50%;
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+    position: absolute;
+    z-index: -1;
+    left: 0;
+    top: 50vh;
+    transform: skewY(-3deg);
+}
+
+.section {}
+
+.section__headline {
+    margin: 20px 0;
+    font-size: 35px;
+    display: inline-block;
+}
+
+.section__body {}
+
+.section__blurb {
+    margin: 10px 0;
+    font-family: "Cardo", sans-serif;
+    font-size: 18px;
+    line-height: 26px;
+}
+
+.section__blurb:first-of-type {
+    background: yellow;
+    display: inline;
+    font-size: 155%;
+    line-height: 180%;
+    position: relative;
+}
+
+.section__blurb:first-of-type::after {
+    content: '';
+    width: 20px;
+    height: 20px;
+    background: red;
 }
 
 .worklist {
@@ -251,9 +300,14 @@ body {
       flex: 33%;
     }
 
-
     .hero {
       display: none;
+    }
+
+
+    .content {
+      padding: 20px 25px;
+
     }
 
     .project {
@@ -278,6 +332,8 @@ body {
 }
 
 
+
+
 /* TABLET */
 
 @media only screen and (min-width:580px) and (max-width:799px) {}
@@ -286,52 +342,3 @@ body {
 /* DESKTOP */
 
 @media only screen and (min-width:800px) {}
-
-.content {
-    padding: 20px;
-    margin-top: 50px;
-}
-
-.hero {
-    background: url(/img/geo.jpg) no-repeat 50% 50%;
-    background-size: cover;
-    height: 100vh;
-    width: 150vw;
-    position: absolute;
-    z-index: -1;
-    left: 0;
-    top: 50vh;
-    transform: skewY(-3deg);
-}
-
-.section {}
-
-.section__headline {
-    margin: 20px 0;
-    font-size: 35px;
-    display: inline-block;
-}
-
-.section__body {}
-
-.section__blurb {
-    margin: 10px 0;
-    font-family: "Cardo", sans-serif;
-    font-size: 18px;
-    line-height: 26px;
-}
-
-.section__blurb:first-of-type {
-    background: yellow;
-    display: inline;
-    font-size: 155%;
-    line-height: 180%;
-    position: relative;
-}
-
-.section__blurb:first-of-type::after {
-    content: '';
-    width: 20px;
-    height: 20px;
-    background: red;
-}
