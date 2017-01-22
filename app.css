@@ -157,7 +157,7 @@ body {
     font-weight: bold;
     color: #ad4;
     margin: 0 0 10px;
-    float: right;
+
 }
 
 .project__live::before {
@@ -247,7 +247,7 @@ body {
     }
     .project__copy-container {
         flex: 100%;
-        padding: 25px;
+        padding: 0px;
         margin-left: 0;
         margin-bottom: 10px;
     }
