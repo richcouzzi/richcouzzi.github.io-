@@ -50,7 +50,7 @@
 
       var landingBlurbs  = [
         `My name is Rich, and I am a multi-disciplinary web focused
-        software engineer and designer.`,
+        software engineer and product designer.`,
 
         `In the past 4 years, I’ve
         helped grow a small startup into a nationally recognized
@@ -64,6 +64,8 @@
         Zumba, but the rest checks out. My goal is work with and
         help build a creative software team that values design
         and simplicity and wants to build amazing things.`,
+
+        `Thanks for visiting,`,
 
         `Rich`
       ];
@@ -108,10 +110,10 @@
                         ],
           link:        'https://breakaway.pelotoncycle.com/#/jess/week/1',
           live:         true,
-          description: `A coach-curated 4 week training program. Fully responsive
-                        across 4 breakpoints, built on Amazon Web Services (S3), Backend data driven by
-                        Google Drive API, allowing management and maintence of the
-                        data layer to be controlled by the familiar GDocs interface.`
+          description: `A coach-curated 4 week training program for engagement and retention.
+                        Built on Amazon Web Services. Integrated Google
+                        Drive intergration allows for maintence and updates without code deploys.
+                        Responsive: Desktop, Tablet, Large Tablet and Mobile`,
         },
         {
           image:       '/img/work/screencapture-press-pelotoncycle-1484961086380.jpg',
@@ -126,8 +128,10 @@
                         ],
           link:        'https://press.pelotoncycle.com',
           live:         true,
-          description: `A hub for managing vetted digital assets. Fully responsive
-                        across 4 breakpoints, built on Amazon Web Services (S3).`
+          description: `A media hub for serving company-vetted logos, photos, pdfs
+                        and video-embed snippets to press outlets. Integrated Google
+                        Drive intergration allows for maintence and updates without code deploys.
+                        Responsive: Desktop, Tablet, Large Tablet and Mobile`,
         },
         {
           image:       '/img/work/screencapture-wallpapers-pelotoncycle-1484967569661.jpg',
@@ -143,8 +147,11 @@
           link:        'https://wallpapers.pelotoncycle.com',
           live:         true,
           description: `Fashion week promotion for user engagement and retention.
-                        Screen resolution detection served up the correct asset, with
-                        the option to view the entire collection on desktop.`
+                        Allows users to select wallpaper for up to 8 screen resolutions,
+                        as well as social media covers. Proper resolution is suggested to
+                        the user for the sake of UX, but the option to view the entire
+                        collection is available for desktop,
+                        Responsive: Desktop, Tablet, Large Tablet and Mobile`
         },
         {
           image:       '/img/work/screencapture-localhost-4000-landing-html-1484979364083.jpg',
@@ -157,7 +164,10 @@
                         ],
           link:        false,
           live:         true,
-          description: `Personal Web home built in React with Babel and running on Github pages.`
+          description: `This thing that you're looking at—it's kind of like
+                        Inception. This is my personal Web home built in React with
+                        Babel and running on Github pages.
+                        Responsive: Desktop, Tablet, Large Tablet and Mobile`
         },
       ];
 
@@ -313,7 +323,7 @@
             <div className="nav">
               <IndexLink to="/" className="nav__link" activeClassName="nav__link--active">Hello</IndexLink>
               <Link to="/work" className="nav__link" activeClassName="nav__link--active">Work</Link>
-                <Link to="/resume" className="nav__link" activeClassName="nav__link--active">Resume</Link>
+              <Link to="/resume" className="nav__link" activeClassName="nav__link--active">Resume</Link>
             </div>
           )
         }
